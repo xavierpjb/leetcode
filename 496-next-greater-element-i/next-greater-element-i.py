@@ -10,20 +10,15 @@ use a map to determine next greater element
 '''
 class Solution:
     def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
-        ans = {num:-1 for num in nums2}
-
-        i = 0
+        ans = {num:-1 for num in nums1}
         stack = []
 
-        while i < len(nums2):
-            currNum = nums2[i]
-            while stack and nums2[stack[-1]] <= currNum:
-                iNum = stack.pop()
-                ans[nums2[iNum]] = currNum
+        for i, num in enumerate(nums2):
+            while stack and nums2[stack[-1]] <= num:
+                ansNum = nums2[stack.pop()]
+                if ansNum in ans:
+                    ans[ansNum] = num
             stack.append(i)
-            i += 1
-
-
 
         return [ans[num] for num in nums1]
 
