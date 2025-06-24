@@ -33,11 +33,9 @@ class Solution:
                 self.count = count
 
             def __lt__(self, other):
-                if self.count == other.count:
-                    return self.word > other.word
-                else:
+                if self.count != other.count:
                     return self.count < other.count
-                
+                return self.word > other.word
         
         pq = []
         for word, freq in freq.items():
