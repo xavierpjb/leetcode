@@ -31,18 +31,7 @@ class Solution:
                 r = mid
             else:
                 l = mid + 1
-        ans = 0
-        currSum = 0
-        for num in nums:
-            if currSum + num > l:
-                currSum = num
-            else:
-                currSum += num
-            ans = max(ans,currSum)
-
-
-
-        return ans
+        return l
 
 
 
